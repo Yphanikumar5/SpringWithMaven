@@ -1,5 +1,7 @@
 package in.javahome.ims.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -22,7 +24,7 @@ public class StudentController {
 	}
 
 	@RequestMapping(value = "/registration", method = RequestMethod.POST)
-	public String register(@ModelAttribute("student") Student student, BindingResult result) {
+	public String register(@Valid @ModelAttribute("student") Student student, BindingResult result) {
 		if (result.hasErrors()) {
 			System.out.println("Student Name" + student.getFirstName());
 			return "addStudent";
