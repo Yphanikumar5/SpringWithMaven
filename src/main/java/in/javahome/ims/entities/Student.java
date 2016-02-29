@@ -21,6 +21,15 @@ public class Student {
 	@Column(name = "last_name")
 	private String lastName;
 	private String course;
+	private String email;
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
 	public Student() {
 		// TODO Auto-generated constructor stub

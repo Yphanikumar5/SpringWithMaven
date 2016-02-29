@@ -16,7 +16,7 @@
   
   <servlet-mapping>
  	<servlet-name>ims</servlet-name>
-        <url-pattern>/services/*</url-pattern>
+        <url-pattern>*.htm</url-pattern>
   </servlet-mapping>
   
   <!-- <filter>
