@@ -12,10 +12,10 @@ import javax.persistence.Table;
 public class Student {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "student_id")
 	private int studentId;
-	
+
 	@Column(name = "first_name")
 	private String firstName;
 	@Column(name = "last_name")
@@ -69,13 +69,10 @@ public class Student {
 
 	@Override
 	public String toString() {
-		return "Student [studentId=" + studentId + ", firstName=" + firstName
-				+ ", lastName=" + lastName + ", course=" + course
-				+ ", getStudentId()=" + getStudentId() + ", getFirstName()="
-				+ getFirstName() + ", getLastName()=" + getLastName()
-				+ ", getCourse()=" + getCourse() + ", getClass()=" + getClass()
-				+ ", hashCode()=" + hashCode() + ", toString()="
-				+ super.toString() + "]";
+		return "Student [studentId=" + studentId + ", firstName=" + firstName + ", lastName=" + lastName + ", course="
+				+ course + ", getStudentId()=" + getStudentId() + ", getFirstName()=" + getFirstName()
+				+ ", getLastName()=" + getLastName() + ", getCourse()=" + getCourse() + ", getClass()=" + getClass()
+				+ ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
 	}
 
 }

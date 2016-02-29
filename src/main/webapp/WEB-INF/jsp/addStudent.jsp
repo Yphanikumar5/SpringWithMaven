@@ -9,7 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form:form action="student-registration" method="post" commandName="student">
+	<form:form action="registration.htm" method="post" commandName="student">
 		<table>
 			<tr>
 				<%-- <td><spring:message code="firstName" /></td> --%>
