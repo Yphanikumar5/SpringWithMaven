@@ -9,20 +9,24 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form:form action="addStudent" method="post" commandName="student">
+	<form:form action="student-registration" method="post" commandName="student">
 		<table>
 			<tr>
-				<td><spring:message code="firstName" /></td>
+				<%-- <td><spring:message code="firstName" /></td> --%>
+				<td>Firstname</td>
 				<td><form:input path="firstName" /></td>
 				<td><form:errors path="firstName" cssStyle="color:red" /></td>
 			</tr>
 			<tr>
-				<td><spring:message code="lastName" /></td>
+				<%-- <td><spring:message code="lastName" /></td> --%>
+				<td>LastName</td>
 				<td><form:input path="lastName" /></td>
 				<td><form:errors path="lastName" cssStyle="color:red" /></td>
 			</tr>
 			<tr>
-				<td><spring:message code="course" /></td>
+			<td>
+				<%-- <td><spring:message code="course" /></td> --%>
+				Course</td>
 				<td><form:input path="course" /></td>
 				<td><form:errors path="course" cssStyle="color:red" /></td>
 			</tr>

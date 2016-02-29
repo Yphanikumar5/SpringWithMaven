@@ -23,7 +23,7 @@
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.2.xsd
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.2.xsd">
 		<import resource="spring-security.xml"/>
-	<jpa:repositories base-package="in.javahome.ims.repositories" />
+	<!-- <jpa:repositories base-package="in.javahome.ims.repositories" /> -->
 	<context:component-scan base-package="in.javahome.ims" />
 	<mvc:annotation-driven />
 	
@@ -35,11 +35,11 @@
 		<property name="username" value="root" />
 		<property name="password" value="javahome" />
 	</bean>
-	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+<!-- 	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
 
-	<!-- Entity manager configuration to configure all the entities -->
+	Entity manager configuration to configure all the entities
 	<bean id="entityManagerFactory"
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 		<property name="dataSource" ref="dataSource" />
@@ -58,7 +58,7 @@
 				hibernate.generate_statistics = true
 				hibernate.hbm2ddl.auto=none
 				hibernate.show_sql=true
-				<!-- Hibernate Enverse Configuration -->
+				Hibernate Enverse Configuration
 				org.hibernate.envers.audit_strategy =
 				org.hibernate.envers.strategy.DefaultAuditStrategy
 				org.hibernate.envers.audit_table_suffix = _AUDIT
@@ -74,7 +74,12 @@
 	</bean>
 
 	<tx:annotation-driven transaction-manager="transactionManager" />
-
+ -->
+<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+<property name="prefix" value="/WEB-INF/jsp/"></property>
+<property name="suffix" value=".jsp"></property>
+</bean>
+<!-- 
 	<bean class="org.springframework.orm.jpa.JpaTransactionManager"
 		id="transactionManager">
 		<property name="entityManagerFactory" ref="entityManagerFactory" />
@@ -82,7 +87,7 @@
 			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaDialect" />
 		</property>
 	</bean>
-	<context:property-placeholder
+ -->	<context:property-placeholder
 		location="classpath:ims.properties,classpath:ims-messages.properties" />
 		
 	<bean id="messageSourse" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">

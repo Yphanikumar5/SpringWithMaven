@@ -26,6 +26,7 @@ public class StudentController {
 	@RequestMapping(value = "/student-registration", method = RequestMethod.POST)
 	public String upload(@Validated @ModelAttribute("student") Student student, BindingResult result) {
 		if (result.hasErrors()) {
+			System.out.println("Student Name"+student.getFirstName());
 			return "addStudent";
 		} else {
 			registerService.addStudentDetails(student);

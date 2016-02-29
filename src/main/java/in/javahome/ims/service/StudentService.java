@@ -1,5 +1,6 @@
 package in.javahome.ims.service;
 
+import in.javahome.ims.dao.IStudentDao;
 import in.javahome.ims.entities.Student;
 import in.javahome.ims.repositories.StudentRepository;
 
@@ -10,10 +11,12 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class StudentService implements IStudentService {
 	@Autowired
-	private StudentRepository repository;
+	// private StudentRepository repository;
+	private IStudentDao dao;
 
-	@Transactional
+	// @Transactional
 	public void addStudentDetails(Student student) {
-		repository.save(student);
+		// repository.save(student);
+		dao.addStudent(student);
 	}
 }
