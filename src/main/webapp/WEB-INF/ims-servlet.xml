@@ -27,16 +27,16 @@
 	<!-- <jpa:repositories base-package="in.javahome.ims.repositories" /> -->
 	<context:component-scan base-package="in.javahome.ims" />
 	<mvc:annotation-driven />
-	
-<!-- 	View -->
+	<mvc:resources mapping="/static/**" location="/static/" />
+	<!-- View -->
 
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/jsp/"></property>
 		<property name="suffix" value=".jsp"></property>
 	</bean>
-	
-<!-- 	Database connection -->
+
+	<!-- Database connection -->
 
 	<bean id="dataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
@@ -45,8 +45,8 @@
 		<property name="username" value="root" />
 		<property name="password" value="javahome" />
 	</bean>
-	
-<!-- 	Hibernate integration -->
+
+	<!-- Hibernate integration -->
 
 	<bean id="sessionFactory"
 		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
@@ -63,10 +63,10 @@
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
 
-<!-- 	Enable transaction manager -->
+	<!-- Enable transaction manager -->
 
 	<tx:annotation-driven transaction-manager="transactionManager" />
-	
+
 	<bean id="messageSourse"
 		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
 		<property name="basename" value="/WEB-INF/message"></property>

@@ -1,13 +1,19 @@
 package in.javahome.ims.entities;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
-
-import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 @Table(name = "student")
@@ -19,15 +25,57 @@ public class Student {
 	private int studentId;
 
 	@Column(name = "first_name")
-	@NotEmpty
 	private String firstName;
+
 	@Column(name = "last_name")
 	private String lastName;
-	private String course;
+
 	private String email;
+	
+	private String password;
+	
+	private Integer yearOfPass;
+	
+	@Column(name="MOBILE")
+	private String mobile;
+	
+	@ManyToMany(fetch=FetchType.EAGER)
+	@JoinTable(name = "STUDENT_COURSE", joinColumns = { @JoinColumn(name = "STUDENT_ID") }, inverseJoinColumns = {
+			@JoinColumn(name = "COURSE_ID") })
+	private Set<Course> courses = new HashSet<Course>();
+	
+	@ManyToMany
+	@JoinTable(name = "STUDENT_BATCH", joinColumns = { @JoinColumn(name = "STUDENT_ID") }, inverseJoinColumns = {
+			@JoinColumn(name = "BATCH_ID") })
+	private Set<Batch> batches = new HashSet<Batch>();
+	
+
+	public String getMobile() {
+		return mobile;
+	}
+
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
+	}
+
+	public Set<Batch> getBatches() {
+		return batches;
+	}
+
+	public void setBatches(Set<Batch> batches) {
+		this.batches = batches;
+	}
 
 	public String getEmail() {
 		return email;
+	}
+
+	public Set<Course> getCourses() {
+		return courses;
+	}
+
+	public void setCourses(Set<Course> courses) {
+		this.courses = courses;
 	}
 
 	public void setEmail(String email) {
@@ -62,20 +110,22 @@ public class Student {
 		this.lastName = lastName;
 	}
 
-	public String getCourse() {
-		return course;
+	public String getPassword() {
+		return password;
 	}
 
-	public void setCourse(String course) {
-		this.course = course;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
-	@Override
-	public String toString() {
-		return "Student [studentId=" + studentId + ", firstName=" + firstName + ", lastName=" + lastName + ", course="
-				+ course + ", getStudentId()=" + getStudentId() + ", getFirstName()=" + getFirstName()
-				+ ", getLastName()=" + getLastName() + ", getCourse()=" + getCourse() + ", getClass()=" + getClass()
-				+ ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
+	public Integer getYearOfPass() {
+		return yearOfPass;
 	}
+
+	public void setYearOfPass(Integer yearOfPass) {
+		this.yearOfPass = yearOfPass;
+	}
+	
+	
 
 }
