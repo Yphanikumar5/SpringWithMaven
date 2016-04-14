@@ -12,15 +12,16 @@ import in.javahome.ims.dao.ICourseDAO;
 import in.javahome.ims.entities.Course;
 import in.javahome.ims.entities.Student;
 import in.javahome.ims.vo.CourseVO;
+
 // Test comment
 @Service
-public class CourseService implements ICourseService{
+public class CourseService implements ICourseService {
 	@Autowired
 	private ICourseDAO courseDAO;
-	
-	public List<CourseVO> findAll(){
+
+	public List<CourseVO> findAll() {
 		// Verify
-		
+
 		List<Course> courses = courseDAO.findAll();
 		List<CourseVO> coursesVo = new ArrayList<CourseVO>();
 		for (Course course : courses) {
