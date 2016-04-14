@@ -20,6 +20,7 @@ public class CourseService implements ICourseService{
 	
 	public List<CourseVO> findAll(){
 		
+		
 		List<Course> courses = courseDAO.findAll();
 		List<CourseVO> coursesVo = new ArrayList<CourseVO>();
 		for (Course course : courses) {
