@@ -19,7 +19,7 @@ public class CourseService implements ICourseService{
 	private ICourseDAO courseDAO;
 	
 	public List<CourseVO> findAll(){
-		
+		// Verify
 		
 		List<Course> courses = courseDAO.findAll();
 		List<CourseVO> coursesVo = new ArrayList<CourseVO>();
