@@ -8,4 +8,6 @@ public interface IStudentDao {
 	public void addStudent(Student student);
 
 	public List<Student> findAll();
+
+	public List<Student> findStudentFeeDetails(Integer studentId);
 }

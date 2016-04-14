@@ -1,7 +1,6 @@
 package in.javahome.ims.dao;
 
 import java.util.List;
-import java.util.Set;
 
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Restrictions;
@@ -13,30 +12,25 @@ import in.javahome.ims.entities.Course;
 import in.javahome.ims.entities.Student;
 
 @Repository
-public class StudentDao implements IStudentDao {
-
+@SuppressWarnings("unchecked")
+public class CourseDAO implements ICourseDAO {
+	
 	@Autowired
 	private HibernateTemplate template;
 
-	public void addStudent(Student student) {
-		template.save(student);
+	public List<Course> findAll(){
+		return (List<Course>) template.findByCriteria(DetachedCriteria.forClass(Course.class));
+	}
+	
+	public List<Course> findCoursesIn(Integer[] ids) {
+		DetachedCriteria  criteria = DetachedCriteria.forClass(Course.class);
+		criteria.add(Restrictions.in("id", ids));
+		return (List<Course>) template.findByCriteria(criteria);
 	}
 
-	@SuppressWarnings("unchecked")
-	public Set<Course> getAllCourses() {
-		return (Set<Course>) template.find("from Course");
-	}
-
-	@SuppressWarnings("unchecked")
-	public List<Student> findAll() {
-		return (List<Student>) template.findByCriteria(DetachedCriteria.forClass(Student.class));
-	}
-
-	@SuppressWarnings("unchecked")
-	public List<Student> findStudentFeeDetails(Integer studentId) {
+	public List<Student> findAllStudentCourses(Integer studentId) {
 		DetachedCriteria  criteria = DetachedCriteria.forClass(Student.class);
 		criteria.add(Restrictions.eq("studentId", studentId));
 		return (List<Student>) template.findByCriteria(criteria);
 	}
-
 }

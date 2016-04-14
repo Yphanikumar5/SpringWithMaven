@@ -39,7 +39,7 @@ public class Student {
 	@Column(name="MOBILE")
 	private String mobile;
 	
-	@ManyToMany(fetch=FetchType.EAGER)
+	@ManyToMany(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
 	@JoinTable(name = "STUDENT_COURSE", joinColumns = { @JoinColumn(name = "STUDENT_ID") }, inverseJoinColumns = {
 			@JoinColumn(name = "COURSE_ID") })
 	private Set<Course> courses = new HashSet<Course>();
@@ -48,6 +48,11 @@ public class Student {
 	@JoinTable(name = "STUDENT_BATCH", joinColumns = { @JoinColumn(name = "STUDENT_ID") }, inverseJoinColumns = {
 			@JoinColumn(name = "BATCH_ID") })
 	private Set<Batch> batches = new HashSet<Batch>();
+	
+	@ManyToMany(fetch=FetchType.EAGER)
+	@JoinTable(name = "STUDENT_FEE", joinColumns = { @JoinColumn(name = "STUDENT_ID") }, inverseJoinColumns = {
+			@JoinColumn(name = "FEE_ID") })
+	private Set<FeeDetails> feeDetails = new HashSet<FeeDetails>();
 	
 
 	public String getMobile() {
@@ -124,6 +129,14 @@ public class Student {
 
 	public void setYearOfPass(Integer yearOfPass) {
 		this.yearOfPass = yearOfPass;
+	}
+
+	public Set<FeeDetails> getFeeDetails() {
+		return feeDetails;
+	}
+
+	public void setFeeDetails(Set<FeeDetails> feeDetails) {
+		this.feeDetails = feeDetails;
 	}
 	
 	

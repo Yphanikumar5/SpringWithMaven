@@ -11,5 +11,6 @@
 		<mapping class="in.javahome.ims.entities.Student" />
 		<mapping class="in.javahome.ims.entities.Course" />
 		<mapping class="in.javahome.ims.entities.Batch" />
+		<mapping class="in.javahome.ims.entities.FeeDetails" />
 	</session-factory>
 </hibernate-configuration>
