@@ -23,7 +23,7 @@ public class StudentController {
 	private IStudentService studentService;
 	@Autowired
 	private ICourseService courseService;
-	
+	// Changes done in master
 	@RequestMapping(value = "/courses", method = RequestMethod.GET, produces = "application/json")
 	public List<CourseVO> getCources() {
 		System.out.println("Madhu here....");
