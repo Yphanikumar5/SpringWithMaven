@@ -16,12 +16,14 @@ import in.javahome.ims.vo.CourseVO;
 import in.javahome.ims.vo.StudentVO;
 @RestController
 public class StudentController {
+	// Master changes
 	@Autowired
 	private IStudentService studentService;
 	@Autowired
 	private ICourseService courseService;
 	@RequestMapping(value = "/courses", method = RequestMethod.GET, produces = "application/json")
 	public List<CourseVO> getCources() {
+		System.out.println();
 		return courseService.findAll();
 	}
 	
