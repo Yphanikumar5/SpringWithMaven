@@ -17,7 +17,7 @@ import in.javahome.ims.vo.StudentVO;
 
 @RestController
 public class StudentController {
-// Added by Madhu
+
 	@Autowired
 	private IStudentService studentService;
 	@Autowired
@@ -31,7 +31,6 @@ public class StudentController {
 	@RequestMapping(value = "/student/courses/{studentId}", method = RequestMethod.GET, produces = "application/json")
 	public List<CourseVO> getStudentCources(@PathVariable Integer studentId) {
 		System.out.println("added By madhu");
-		// Coment added by master branch
 		System.out.println("added By Hari");
 		return courseService.findAllStudentCourses(studentId);
 	}
