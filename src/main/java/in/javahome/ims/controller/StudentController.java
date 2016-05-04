@@ -26,6 +26,7 @@ public class StudentController {
 	
 	@RequestMapping(value = "/courses", method = RequestMethod.GET, produces = "application/json")
 	public List<CourseVO> getCources() {
+		System.out.println("Madhu here....");
 		return courseService.findAll();
 	}
 	
