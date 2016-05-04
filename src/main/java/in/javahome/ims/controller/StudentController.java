@@ -15,26 +15,19 @@ import in.javahome.ims.service.IStudentService;
 import in.javahome.ims.vo.CourseVO;
 import in.javahome.ims.vo.StudentVO;
 
-// My Local changes
 @RestController
 public class StudentController {
-// Added by Hari
 	@Autowired
 	private IStudentService studentService;
 	@Autowired
 	private ICourseService courseService;
-	// Changes done in master
 	@RequestMapping(value = "/courses", method = RequestMethod.GET, produces = "application/json")
 	public List<CourseVO> getCources() {
-		System.out.println("Madhu here....");
 		return courseService.findAll();
 	}
 	
 	@RequestMapping(value = "/student/courses/{studentId}", method = RequestMethod.GET, produces = "application/json")
 	public List<CourseVO> getStudentCources(@PathVariable Integer studentId) {
-		System.out.println("added By madhu");
-		// Coment added by master branch
-		System.out.println("added By Hari");
 		return courseService.findAllStudentCourses(studentId);
 	}
 
